@@ -1,0 +1,7 @@
+.autotest
+History.txt
+Manifest.txt
+readme.md
+Rakefile
+lib/omnomnum.rb
+test/test_omnomnum.rb

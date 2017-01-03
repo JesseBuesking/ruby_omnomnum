@@ -1,0 +1,3 @@
+[submodule "ext/omnomnum/omnomnum"]
+	path = ext/omnomnum/omnomnum
+	url = https://github.com/JesseBuesking/omnomnum
