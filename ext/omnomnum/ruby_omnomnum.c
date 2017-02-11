@@ -32,14 +32,46 @@
 #include <ruby/encoding.h>
 
 VALUE mOmNomNum;
+VALUE parse_second_symbol;
 
 ParserState state;
 int utf8_encoding;
 
-static VALUE ruby_omnomnum_normalize(VALUE self, VALUE obj)
+// for debugging
+/*int do_print(VALUE key, VALUE val, VALUE in) {*/
+    /*fprintf(*/
+        /*stderr,*/
+        /*"Key %s => Value %d\n", rb_id2name(SYM2ID(key)), RTEST(val));*/
+
+    /*return ST_CONTINUE;*/
+/*}*/
+
+static VALUE ruby_omnomnum_normalize(int argc, VALUE *argv, VALUE self)
 {
-    char *data = StringValuePtr(obj);
-    size_t data_len = RSTRING_LEN(obj);
+    // the actual string to be normalized
+    VALUE input_string;
+    // hash of optional parameters
+    VALUE opts;
+
+    // takes in:
+    //   '1' 1 required argument (string to normalize)
+    //   ':' hash of optional arguments
+    rb_scan_args(argc, argv, "1:", &input_string, &opts);
+
+    // if the hash of optional arguments is nil, just set it equal
+    // to the default empty hash we've saved globally.
+    if (NIL_P(opts)) opts = rb_hash_new();
+
+    // for debugging
+    /*rb_hash_foreach(opts, do_print, Qnil);*/
+
+    VALUE ruby_parse_second = rb_hash_aref(opts, parse_second_symbol);
+    if (!NIL_P(ruby_parse_second)) {
+        state.parse_second = RTEST(ruby_parse_second);
+    }
+
+    char *data = StringValuePtr(input_string);
+    size_t data_len = RSTRING_LEN(input_string);
 
     normalize(data, data_len, &state);
 
@@ -53,9 +85,12 @@ static VALUE ruby_omnomnum_normalize(VALUE self, VALUE obj)
 
 void Init_omnomnum()
 {
+    // initialize our global variables
+    parse_second_symbol = ID2SYM(rb_intern("parse_second"));
     utf8_encoding = rb_enc_find_index("UTF-8");
+
     initOmNomNum();
     initParserState(&state);
     VALUE mOmNomNum = rb_define_module("OmNomNum");
-    rb_define_singleton_method(mOmNomNum, "normalize", ruby_omnomnum_normalize, 1);
+    rb_define_singleton_method(mOmNomNum, "normalize", ruby_omnomnum_normalize, -1);
 }
