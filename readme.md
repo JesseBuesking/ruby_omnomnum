@@ -29,3 +29,7 @@ _Note: Benchmark done using valgrind._
 | ------- | ---------------------:| -------:|
 | Numerizer | 323.271 | 1&times; |
 | OmNomNum | 2.516M | 7,750+&times; |
+
+### Notes
+
+The [OmNomNum](https://github.com/JesseBuesking/omnomnum) actually has two methods: one that returns a normalized string, and one that returns a list containing the locations of the numbers in the string and their values. `ruby_omnomnum` currently only supports the first function, but the second could eventually be exposed.
