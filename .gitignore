@@ -6,4 +6,4 @@ tmp
 ext/omnomnum/ruby_omnomnum.o
 lib/omnomnum/omnomnum.so
 
-omnomnum-0.0.1.gem
+omnomnum-*.gem

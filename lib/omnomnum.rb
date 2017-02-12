@@ -1,4 +1,4 @@
-# OmNomNum 0.0.1 -- Gobbles up numbers in strings.
+# OmNomNum 0.0.2 -- Gobbles up numbers in strings.
 #
 # Copyright (c) 2017, Jesse Buesking <jessebuesking at gmail dot com>
 # All rights reserved.
@@ -11,7 +11,7 @@
 #   * Redistributions in binary form must reproduce the above copyright
 #     notice, this list of conditions and the following disclaimer in the
 #     documentation and/or other materials provided with the distribution.
-#   * Neither the name of Redis nor the names of its contributors may be used
+#   * Neither the name of OmNomNum nor the names of its contributors may be used
 #     to endorse or promote products derived from this software without
 #     specific prior written permission.
 #

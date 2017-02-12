@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name              = 'omnomnum'
-  s.version           = '0.0.1'
+  s.version           = '0.0.2'
   s.rubyforge_project = 'omnomnum'
   s.summary           = 'Gobbles up numbers in strings.'
   s.description       = 'OmNomNum normalizes numbers in ruby strings.'
