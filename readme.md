@@ -3,6 +3,8 @@
 Wrapper for the [OmNomNum](https://github.com/JesseBuesking/omnomnum) c project,
 which implements most of the logic from [numerizer](https://github.com/jduff/numerizer).
 
+[![Gem Version](https://badge.fury.io/rb/omnomnum.svg)](https://badge.fury.io/rb/omnomnum)
+
 ## Install
 
 ```
