@@ -3,6 +3,25 @@
 Wrapper for the [OmNomNum](https://github.com/JesseBuesking/omnomnum) c project,
 which implements most of the logic from [numerizer](https://github.com/jduff/numerizer).
 
+## Install
+
+```
+gem install omnomnum
+```
+
+## Usage
+
+```
+require 'omnomnum'
+
+OmNomNum.normalize('first')
+=> "1st"
+OmNomNum.normalize('second')
+=> "second"
+OmNomNum.normalize('second', parse_second: true)
+=> "2nd"
+```
+
 ## Benchmarks
 
 ### Memory
